@@ -1,9 +1,24 @@
 class Atm:
+    __counter = 1
+
     def __init__(self):
         self.__pin = ""
         self.__balance = 0
+        self.sno = Atm.__counter
+        Atm.__counter = Atm.__counter + 1
 
         self.__menu()
+
+    @staticmethod
+    def get_counter():
+        return Atm.__counter
+
+    @staticmethod
+    def set_counter(new_counter):
+        if type(new_counter) == int:
+            Atm.__counter = new_counter
+        else:
+            print("Not Allowed")
 
     def get_pin(self):
         return self.__pin
@@ -76,8 +91,3 @@ class Atm:
             print("Invalid PIN")
 
         self.__menu()
-
-
-
-
-
